@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+<head>
+    <title>
+         እቁብ
+    </title>
+</head>
+
+<body style="text-align:center;">
+
+    <h1 style="color:rgb(252, 9, 9);">
+        እቁብ
+    </h1>
+    <form>
+        <h1>እቁብ የሚጥሉ ስዎች ስም ዝርዝር እና የገንዘብ መጠን ያስገቡ</h1>
+        <br>
+        <label for="Name">ስም:</label>
+        <br>
+        <input id="name" type="text">
+        <br>
+        <br>
+        <label for="amo">የጣሉት የገንዘብ መጠን:</label>
+        <br>
+        <input id="amo" type="text">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="መዝግብ" onclick="savedata()">
+        <br>
+        <br>
+        <input type="button" value="አሳይ" onclick="displayData()">
+        <br>
+    </form>
+
+
+    <button id="button" onclick="ran()">
+        እቁብ አውጣ
+    </button>
+    <div id="display"></div>
+    <p id="dis" style="font-size: 24px; font-weight: bold; color: rgb(247, 9, 9);">
+    </p>
+
+    <script>
+        var down = document.getElementById('dis');
+
+       
+
+        var arrNames = new Array();
+        var arramo=new Array();
+
+        function savedata() {
+            var name = document.getElementById('name').value;
+            var amo = document.getElementById('amo').value;
+            arrNames[arrNames.length] = name;
+            arramo[arramo.length]=amo;
+        }
+
+        function displayData() {
+            var content = "<b>እቁብ የሚጥሉ ስዎች ስም ዝርዝር እና የገንዘብ መጠን:</br><br>";
+            content += [arrNames] + "</br>";
+            content+=[arramo]+"</br>";
+            document.getElementById('display').innerHTML = content;
+        }
+
+        function random(mn, mx) {
+            return Math.random() * (mx - mn) + mn;
+        }
+
+        function ran() {
+            down.innerHTML = arrNames[Math.floor(random(1, arrNames.length)) ];
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
